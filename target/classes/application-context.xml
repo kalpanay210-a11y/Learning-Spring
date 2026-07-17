@@ -13,7 +13,7 @@
     
     </bean>
     
-    <bean name="emp1" class="com.learning.model.Employee">
+    <bean name="emp1" class="com.learning.model.Employee" init-method="xmlInitMethod" destroy-method="xmlDestroyMethod">
     
      <property name="id" value="111"/>
      <property name="name" value="Himanshu"/>

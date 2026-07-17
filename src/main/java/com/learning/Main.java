@@ -1,6 +1,7 @@
 package com.learning;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.learning.model.Address;
@@ -10,16 +11,11 @@ public class Main {
 	
 	public static void main(String args[]) {
 		
-		ApplicationContext factory = new ClassPathXmlApplicationContext("application-context.xml");
-		
-		Employee obj = (Employee) factory.getBean("emp1");
-		
+		ClassPathXmlApplicationContext factory = new ClassPathXmlApplicationContext("application-context.xml");
+		Employee obj = factory.getBean("emp1", Employee.class);
 		System.out.println(obj);
+	    factory.registerShutdownHook();
 		
-		obj.setAddress(obj.applyAddress());
-		System.out.println(obj);
-		Address a1 = obj.applyAddress();
-		System.out.println(a1);
 	}
 
 }

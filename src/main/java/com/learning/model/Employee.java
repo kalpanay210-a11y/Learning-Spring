@@ -1,6 +1,9 @@
 package com.learning.model;
 
-public abstract class Employee {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public abstract class Employee implements InitializingBean, DisposableBean{
 	
 	private int id;
 	private String name, gender;
@@ -8,10 +11,31 @@ public abstract class Employee {
 	
 	Address address;
 	
+	@Override
+	public void afterPropertiesSet() throws Exception{
+		
+		System.out.println("Eployee.afterPropertySet()");
+		
+	}
+	
+	@Override
+	public void destroy() throws Exception{
+		
+		System.out.println("Employee.destroy()");
+		
+	}
 	public abstract Address applyAddress();
 	
 	public Employee() {
 		System.out.println("Employee.Employee()");
+	}
+	
+	private void xmlInitMethod() {
+		System.out.println("Employee.xmlInitMethod()");
+	}
+	
+	private void xmlDestroyMethod() {
+		System.out.println("Employee.xmlDestroyMethod()");
 	}
 	
 	public void setName(String name) {
