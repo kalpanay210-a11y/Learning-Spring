@@ -3,19 +3,23 @@ package com.learning;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.learning.model.Address;
 import com.learning.model.Employee;
 
 public class Main {
 	
 	public static void main(String args[]) {
 		
-		ApplicationContext ioc = new ClassPathXmlApplicationContext("application-context.xml");
+		ApplicationContext factory = new ClassPathXmlApplicationContext("application-context.xml");
 		
-		Employee bean1 = ioc.getBean("emp1", Employee.class);
-		System.out.println(bean1);
+		Employee obj = (Employee) factory.getBean("emp1");
 		
-		Employee bean2 = ioc.getBean("emp1", Employee.class);
-		System.out.println(bean2);
+		System.out.println(obj);
+		
+		obj.setAddress(obj.applyAddress());
+		System.out.println(obj);
+		Address a1 = obj.applyAddress();
+		System.out.println(a1);
 	}
 
 }
