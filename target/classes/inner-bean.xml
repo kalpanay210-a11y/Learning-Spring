@@ -6,7 +6,7 @@
 
     <!-- bean definitions here -->
     
-    <bean name="address" class="com.learning.model.Address" primary="true">
+    <bean name="address" class="com.learning.model.Address" >
     
       <property name="city" value="GZB"></property>
       <property name="state" value="U.P"></property>
@@ -19,27 +19,15 @@
      <property name="name" value="Himanshu"/>
      <property name="gender" value="Male"/>
      <property name="salary" value="100023"/>
-     <!-- <property name="address" ref="add1"/> -->
-    
-    </bean>
-    
-    <bean name="add2" class="com.learning.model.Address">
-    
-       <constructor-arg name="city" value="Gurgaon"/>
-       <constructor-arg name="state" value="HR"/>
-       
-    </bean>
-    
-   <!-- <bean name="emp2" class="com.learning.model.Employee">
-   
-      <constructor-arg name="id" value="121"/>   
-      <constructor-arg name="name" value="Anurag"/>
-      <constructor-arg name="gender" value="Male"/>
-      <constructor-arg name="salary" value="53230"/>
-      <constructor-arg name="address" ref="add2"/>
-    
-   </bean> -->
-    
+     <property name="address">
      
+        <bean class="com.learning.model.Address">
+            <property name="city" value="Noida"></property>
+            <property name="state" value="U.P"></property>
+        </bean>
+        
+     </property>
+    
+    </bean> 
 
 </beans>

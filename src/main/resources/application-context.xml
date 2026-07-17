@@ -13,7 +13,7 @@
     
     </bean>
    
-    <bean name="emp1" class="com.learning.model.Employee" autowire="byType">
+    <bean name="emp1" class="com.learning.model.Employee" autowire="byType" scope="prototype">
     
      <property name="id" value="111"/>
      <property name="name" value="Himanshu"/>
