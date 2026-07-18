@@ -20,14 +20,11 @@ public class Employee {
 		System.out.println("Employee.Employee()");
 	}
 	
-	public Employee(int id, String name, String gender, int salary, Address address) {
+	@Autowired
+	public Employee( Address address) {
 		super();
-		this.id = id;
-		this.name = name;
-		this.gender = gender;
-		this.salary = salary;
 		this.address = address;
-		System.out.println("Employee.Employee(5)");
+		System.out.println("Employee.Employee(1)");
 	}
 	
 	public int getId() {
@@ -70,7 +67,6 @@ public class Employee {
 		return address;
 	}
 	
-	@Autowired
 	public void setAddress(Address address) {
 		this.address = address;
 		System.out.println("Address.setAddress()");
