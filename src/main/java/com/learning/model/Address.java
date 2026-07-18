@@ -1,8 +1,11 @@
 package com.learning.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Address {
 	
-	private String city, state;
+	private String city = "Luckow", state = "UP";
 	
 	public Address() {
 		super();

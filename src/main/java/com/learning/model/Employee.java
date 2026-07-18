@@ -1,10 +1,18 @@
 package com.learning.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Data
+@Component
 public class Employee {
 	
-	private int id;
-	private String name, gender;
-	private int salary;
+	private int id =1;
+	private String name = "Shanya", gender = "Female";
+	private int salary = 765535;
+	
 	
 	private Address address;
 	
@@ -57,17 +65,20 @@ public class Employee {
 		this.salary = salary;
 		System.out.println("Employee.setSalary()");
 	}
-	 public Address getAddress() {
-		 return address;
-	 }
 	
-	 public void setAddress(Address address) {
-		 this.address = address;
-	 }
+	public Address getAddress() {
+		return address;
+	}
+	
+	@Autowired
+	public void setAddress(Address address) {
+		this.address = address;
+		System.out.println("Address.setAddress()");
+	}
 	 
 	 @Override 
 	 
 	 public String toString() {
-		 return "Employee[ name= "+ name +", gender= "+ gender +", salary= "+ gender+", address= "+ address +"]";
+		 return "Employee[ name= "+ name +", gender= "+ gender +", salary= "+ salary+", address= " + address +"]";
 	 }
 }
